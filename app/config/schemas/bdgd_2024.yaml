@@ -1,0 +1,192 @@
+versao_contrato: '1.0'
+ano_base: 2024
+distribuidora: ENERGISA_MT
+entidades:
+  ucbt:
+    fontes:
+    - UCBT_tab
+    - UCBT
+    obrigatoria: true
+    campos:
+      id_uc:
+        origem:
+        - COD_ID
+        obrigatorio: true
+        nulo_permitido: false
+      alimentador:
+        origem:
+        - CTMT
+        obrigatorio: true
+        nulo_permitido: false
+      municipio:
+        origem:
+        - MUN
+        obrigatorio: true
+        nulo_permitido: false
+      subestacao:
+        origem:
+        - SUB
+        obrigatorio: true
+        nulo_permitido: true
+      classe:
+        origem:
+        - CLAS_SUB
+        obrigatorio: true
+        nulo_permitido: false
+      tipo_curva:
+        origem:
+        - TIP_CC
+        obrigatorio: true
+        nulo_permitido: true
+      codigo_gd:
+        origem:
+        - CEG_GD
+        obrigatorio: false
+        nulo_permitido: true
+        uso: metadado
+      demanda_mes:
+        origem_padrao: DEM_{mes:02d}
+        cardinalidade: 12
+        obrigatorio: false
+        unidade: kW
+      energia_mes:
+        origem_padrao: ENE_{mes:02d}
+        cardinalidade: 12
+        obrigatorio: true
+        unidade: kWh
+      grupo_tensao:
+        origem:
+        - GRU_TEN
+        obrigatorio: false
+      situacao:
+        origem:
+        - SIT_ATIV
+        obrigatorio: false
+  ucmt:
+    fontes:
+    - UCMT_tab
+    - UCMT
+    obrigatoria: true
+    campos:
+      id_uc:
+        origem:
+        - COD_ID
+        obrigatorio: true
+        nulo_permitido: false
+      alimentador:
+        origem:
+        - CTMT
+        obrigatorio: true
+        nulo_permitido: false
+      municipio:
+        origem:
+        - MUN
+        obrigatorio: true
+        nulo_permitido: false
+      subestacao:
+        origem:
+        - SUB
+        obrigatorio: true
+        nulo_permitido: true
+      classe:
+        origem:
+        - CLAS_SUB
+        obrigatorio: true
+        nulo_permitido: false
+      tipo_curva:
+        origem:
+        - TIP_CC
+        obrigatorio: true
+        nulo_permitido: true
+      codigo_gd:
+        origem:
+        - CEG_GD
+        obrigatorio: false
+        nulo_permitido: true
+        uso: metadado
+      demanda_mes:
+        origem_padrao: DEM_{mes:02d}
+        cardinalidade: 12
+        obrigatorio: false
+        unidade: kW
+      energia_mes:
+        origem_padrao: ENE_{mes:02d}
+        cardinalidade: 12
+        obrigatorio: true
+        unidade: kWh
+      grupo_tensao:
+        origem:
+        - GRU_TEN
+        obrigatorio: false
+      situacao:
+        origem:
+        - SIT_ATIV
+        obrigatorio: false
+  crvcrg:
+    fontes:
+    - CRVCRG
+    obrigatoria: true
+    chave:
+    - tipo_curva
+    - tipo_dia
+    campos:
+      tipo_curva:
+        origem:
+        - COD_ID
+        obrigatorio: true
+        nulo_permitido: false
+      tipo_dia:
+        origem:
+        - TIP_DIA
+        obrigatorio: true
+        dominio:
+        - DU
+        - SA
+        - DO
+      grupo_tensao:
+        origem:
+        - GRU_TEN
+        obrigatorio: false
+      descricao:
+        origem:
+        - DESCR
+        obrigatorio: false
+      potencia:
+        origem_padrao: POT_{i:02d}
+        cardinalidade: 96
+        obrigatorio: true
+        unidade: kW
+  ctmt:
+    fontes:
+    - CTMT
+    obrigatoria: true
+    campos:
+      id_alimentador:
+        origem:
+        - COD_ID
+        obrigatorio: true
+        nulo_permitido: false
+      subestacao:
+        origem:
+        - SUB
+        obrigatorio: true
+        nulo_permitido: false
+      nome:
+        origem:
+        - NOME
+        obrigatorio: false
+  sub:
+    fontes:
+    - SUB
+    obrigatoria: true
+    campos:
+      id_subestacao:
+        origem:
+        - COD_ID
+        obrigatorio: true
+        nulo_permitido: false
+      nome:
+        origem:
+        - NOME
+        obrigatorio: false
+

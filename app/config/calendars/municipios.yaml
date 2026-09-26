@@ -1,0 +1,4 @@
+versao: '1.0'
+# Nenhuma cobertura municipal foi documentalmente confirmada.
+# Ausência de município implica CALENDARIO_PARCIAL, inclusive em Cuiabá.
+municipios: {}

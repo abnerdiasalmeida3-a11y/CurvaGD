@@ -1,0 +1,23 @@
+# Ambiente e caches
+.venv/
+__pycache__/
+*.pyc
+.pytest_cache/
+.coverage
+htmlcov/
+*.egg-info/
+
+# Build do PyInstaller
+build/
+dist/
+*.exe
+*.zip
+
+# Dados locais (nunca publicar bases da BDGD, ANEEL, NASA ou resultados)
+workspace/
+benchmark_workspace/
+package_test_workspace/
+*.gdb/
+*.gpkg
+*.parquet
+*.duckdb

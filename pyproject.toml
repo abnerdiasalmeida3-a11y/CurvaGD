@@ -1,0 +1,31 @@
+[build-system]
+requires = ["setuptools>=70"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "curvagd"
+version = "0.7.0"
+description = "CurvaGD: curvas de carga e geração distribuída das UCs da BDGD"
+requires-python = ">=3.12,<3.13"
+dependencies = ["PySide6>=6.7", "duckdb", "pyogrio", "numpy", "pandas", "scipy", "pyarrow", "holidays", "PyYAML", "pydantic-settings"]
+
+[project.optional-dependencies]
+dev = ["pytest", "pytest-qt", "pytest-cov", "pyinstaller", "psutil"]
+
+[tool.setuptools.packages.find]
+include = ["app*"]
+
+[tool.setuptools.package-data]
+app = ["config/schemas/*.yaml", "config/calendars/*.yaml", "config/municipios_ibge.json"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+qt_api = "pyside6"
+markers = ["performance: benchmark explícito", "real: base real"]
+
+[tool.coverage.run]
+source = ["app.domain", "app.ingest.validator"]
+
+[tool.coverage.report]
+show_missing = true
+fail_under = 90
