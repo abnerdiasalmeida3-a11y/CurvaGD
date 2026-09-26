@@ -204,7 +204,7 @@ Principais bibliotecas: PySide6 (interface e gráficos), DuckDB e PyArrow (armaz
 
 ## 8. Licença e autoria
 
-Desenvolvido por **Abner Dias Almeida** como Trabalho de Conclusão de Curso.
+Desenvolvido por **Abner Dias Almeida** e **Lucas Maximus**.
 
 Distribuído sob a [licença MIT](LICENSE): você pode usar, copiar, modificar e redistribuir, desde que mantenha o aviso de copyright.
 
