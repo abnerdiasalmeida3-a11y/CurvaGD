@@ -63,7 +63,7 @@ O menu fica à esquerda. O botão **☰** (ou **Ctrl+B**) esconde e mostra o men
 
 ### Passo 1 – Dados de entrada
 
-![Tela Dados de entrada](docs/imagens/dados_de_entrada.png)
+![Tela Dados de entrada](imagens/dados_de_entrada.png)
 
 1. Em **BDGD (.gdb)**, clique em **Escolher pasta…** e selecione a pasta `.gdb`.
 2. Em **Irradiância NASA**, clique em **Escolher CSV…** e selecione o CSV da NASA POWER.
@@ -76,7 +76,7 @@ O menu fica à esquerda. O botão **☰** (ou **Ctrl+B**) esconde e mostra o men
 
 ### Passo 2 – Regiões
 
-![Tela Regiões](docs/imagens/regioes.png)
+![Tela Regiões](imagens/regioes.png)
 
 Escolha o **município**, a **subestação** e o **alimentador**. Essa seleção vale para o mapa, para a lista de UCs e para a correção de demanda.
 
@@ -88,11 +88,11 @@ Escolha o **município**, a **subestação** e o **alimentador**. Essa seleção
 
 Desenha os trechos de média (MT) e baixa tensão (BT) da subestação escolhida, lidos do `.gdb` importado.
 
-![Exemplo de mapa da rede](docs/imagens/mapa_da_rede.png)
+![Exemplo de mapa da rede](imagens/mapa_da_rede.png)
 
 ### Passo 4 – Unidades consumidoras
 
-![Tela Unidades consumidoras](docs/imagens/unidades_consumidoras.png)
+![Tela Unidades consumidoras](imagens/unidades_consumidoras.png)
 
 1. A tabela mostra só as UCs ativas (`SIT_ATIV = AT`) da região. Use a busca e os filtros (classe, grupo, GD, status) para achar uma UC.
 2. **Ver 12 meses e total da UC** mostra a energia de cada mês.
@@ -141,7 +141,7 @@ A lista de UCs e a correção de demanda usam a mesma função de geração (`ap
 
    onde `C` é a curva de carga em pu, `G` é a geração em kW e `h` é o passo em horas. Sem GD, a conta é direta: `DEM_MAX = ENE / (h · ΣC)`. Com GD, a função é linear por partes e é invertida de forma exata. Um `ENE` ausente, inválido ou negativo resulta em demanda zero no mês.
 
-**Validação.** Comparado com a ferramenta CORRECAO_DEMANDA_BDGD usando as mesmas curvas, irradiância e potências, a `DEM_MAX` dos 12 meses é idêntica UC a UC. O repositório tem 146 testes automatizados. A documentação histórica do método está em [`docs/correcao_demanda_bdgd.md`](docs/correcao_demanda_bdgd.md).
+**Validação.** Comparado com a ferramenta CORRECAO_DEMANDA_BDGD usando as mesmas curvas, irradiância e potências, a `DEM_MAX` dos 12 meses é idêntica UC a UC.
 
 **Limitações.** Os resultados são estimativas feitas a partir dos dados declarados na BDGD, não medições. A qualidade depende da BDGD (energias, tipologias e cadastro das UGs), da representatividade do ponto escolhido na NASA POWER e do cadastro da ANEEL.
 
@@ -174,21 +174,9 @@ py -3.12 -m venv .venv
 
 Também dá para abrir com dois cliques em **`Abrir pelo codigo-fonte.cmd`**, que usa a pasta `workspace` dentro do repositório.
 
-**Testes**
-
-```powershell
-.\.venv\Scripts\python.exe -m pytest -q
-```
-
 **Gerar o executável**
 
-Execute **`Gerar executavel.cmd`**. Ele compila com o PyInstaller a partir de `CurvaGD.spec` e copia o `CurvaGD.exe` para a pasta **acima** do repositório. Depois, **`Criar pacote para compartilhar.cmd`** monta um ZIP com o executável e um `LEIA_ME_PARA_USUARIO.txt` que deve estar nessa mesma pasta.
-
-**Conferir o cálculo sem a interface**
-
-```powershell
-.\.venv\Scripts\python.exe scripts\verificar_correcao.py --bdgd "C:\...\sua_bdgd.gdb" --nasa "C:\...\POWER_hourly.csv" --ctmt CODIGO_DO_ALIMENTADOR
-```
+Execute **`Gerar executavel.cmd`**. Ele compila com o PyInstaller a partir de `CurvaGD.spec` e copia o `CurvaGD.exe` para a pasta **acima** do repositório.
 
 **Estrutura das pastas**
 
@@ -204,9 +192,7 @@ CurvaGD/
 │   ├── ingest/       importação da BDGD (.gdb ou CSV)
 │   ├── services/     casos de uso: dados de entrada, curvas, exportação, mapa
 │   └── ui/           janelas e gráficos (PySide6)
-├── docs/             documentação do método e imagens deste guia
-├── scripts/          verificações e empacotamento
-├── tests/            testes automatizados (pytest)
+├── imagens/          imagens deste guia
 ├── main.py           ponto de entrada
 ├── CurvaGD.spec      receita do PyInstaller
 └── requirements.lock versões exatas das dependências
