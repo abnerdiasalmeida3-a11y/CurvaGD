@@ -10,10 +10,6 @@ O CurvaGD é um programa para Windows que lê a **BDGD** (Base de Dados Geográf
 
 Funciona offline e não precisa de instalação. Foi desenvolvido como Trabalho de Conclusão de Curso (TCC).
 
-![Curvas de uma UC com GD: carga, geração, curva líquida, importação e exportação](docs/imagens/curvas_uc.png)
-
-> As imagens deste guia usam dados sintéticos de teste, não dados reais de consumidores.
-
 ---
 
 ## Sumário
